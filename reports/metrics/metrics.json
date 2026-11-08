@@ -1,0 +1,72 @@
+{
+  "model_version": "hgb-202611082034",
+  "data": {
+    "users": 1500,
+    "days": 30,
+    "transactions": 105868,
+    "fraud_rate": 0.0114,
+    "train": 74107,
+    "validation": 10587,
+    "test": 21174,
+    "split": "chronological 70/10/20"
+  },
+  "test": {
+    "roc_auc": 0.996,
+    "pr_auc": 0.9291,
+    "baseline_logreg_roc_auc": 0.9801,
+    "baseline_logreg_pr_auc": 0.7154,
+    "red_block": {
+      "threshold": 0.231,
+      "precision": 0.9196,
+      "recall": 0.8374,
+      "false_positive_rate": 0.00086,
+      "flag_rate": 0.0106,
+      "confusion_matrix": {
+        "tn": 20910,
+        "fp": 18,
+        "fn": 40,
+        "tp": 206
+      }
+    },
+    "amber_or_red_review": {
+      "threshold": 0.0049,
+      "precision": 0.3362,
+      "recall": 0.9512,
+      "false_positive_rate": 0.02208,
+      "flag_rate": 0.0329,
+      "confusion_matrix": {
+        "tn": 20466,
+        "fp": 462,
+        "fn": 12,
+        "tp": 234
+      }
+    },
+    "recall_by_pattern_at_amber": {
+      "account_takeover": 0.9808,
+      "card_testing": 1.0,
+      "night_spree": 0.9792,
+      "stolen_details": 0.6429
+    }
+  },
+  "thresholds": {
+    "amber": 0.0049,
+    "red": 0.231
+  },
+  "feature_importance_pr_auc_drop": {
+    "merchant_risk": 0.4819,
+    "amount": 0.2127,
+    "amount_sum_1h": 0.2085,
+    "hour_of_day": 0.1242,
+    "is_new_device": 0.1129,
+    "card_present": 0.11,
+    "amount_to_user_avg": 0.1078,
+    "is_foreign_country": 0.069,
+    "seconds_since_last_txn": 0.055,
+    "txn_count_10m": 0.0203,
+    "user_history_count": 0.0091,
+    "is_night": 0.0055,
+    "is_new_user": 0.0,
+    "log_amount": 0.0,
+    "txn_count_1h": -0.0055
+  }
+}

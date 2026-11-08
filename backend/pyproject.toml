@@ -1,0 +1,20 @@
+[project]
+name = "fraud-scoring-service"
+version = "1.0.0"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["B008"]  # FastAPI's Depends() in default arguments is the intended pattern
+
+[tool.coverage.run]
+source = ["app", "ml"]
+omit = ["ml/plots.py"]
